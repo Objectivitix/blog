@@ -100,11 +100,11 @@ main > * {
   gap: 1rem;
 }
 
-.projects {
+.posts {
   grid-row: 1 / -1;
 }
 
-.projects > div {
+.posts > div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   gap: 1.25rem;
@@ -181,11 +181,20 @@ main {
   padding: 2.25rem 1.25rem 2.75rem;
 }
 
-.projects article {
+.posts article {
   background-color: var(--gray-100);
   box-shadow: var(--shadow);
   padding: 2rem 1.25rem;
   border-radius: 8px;
+}
+
+.posts h4 {
+  margin-bottom: 4px;
+}
+
+.posts p {
+  font-size: calc(var(--fs-400) - 2px + 0.06vw);
+  color: var(--gray-500);
 }
 
 .announcements > div {
