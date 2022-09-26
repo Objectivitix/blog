@@ -199,8 +199,6 @@ main a:hover {
 }
 
 .posts article {
-  position: relative;
-  isolation: isolate;
   background-color: var(--gray-100);
   box-shadow: var(--shadow);
   padding: 2rem 1.25rem;
@@ -209,24 +207,6 @@ main a:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.posts article::before {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background-color: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-medium);
-}
-
-.posts article:hover::before {
-  transform: scaleX(1);
 }
 
 .posts h4 {
