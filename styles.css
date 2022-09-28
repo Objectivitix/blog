@@ -1,6 +1,6 @@
 /* FONTS */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* RESET */
 
@@ -57,6 +57,7 @@ ul {
 body {
   font-family: var(--roboto);
   font-size: var(--fs-400);
+  color: var(--gray-900);
 }
 
 h1 { font-size: var(--fs-800); }
@@ -91,11 +92,15 @@ aside {
 main {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1.4fr 1fr;
+  grid-template-rows: 1.15fr 1fr;
   gap: 1.5rem 1.25rem;
 }
 
-main > * {
+main > .side-info {
+  display: contents;
+}
+
+main :where(.posts, .announcements, .trending) {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1rem;
@@ -109,12 +114,6 @@ main > * {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   gap: 1.25rem;
-}
-
-.announcements > div,
-.trending > div {
-  display: grid;
-  align-items: center;
 }
 
 /* ASIDE */
@@ -190,13 +189,15 @@ main {
   padding: 2.25rem 1.25rem 2.75rem;
 }
 
-main a {
+main :not(h3, h4, h5, h6) > a {
   text-decoration: underline;
 }
 
 main a:hover {
   text-decoration: none;
 }
+
+/* POSTS SECTION */
 
 .posts article {
   background-color: var(--gray-100);
@@ -214,12 +215,16 @@ main a:hover {
 }
 
 .posts h4 > a {
-  text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .posts h4 > a:hover {
   color: var(--accent);
+}
+
+.posts h4 > a:active {
+  color: currentColor;
+  transition: none;
 }
 
 .posts p {
@@ -271,6 +276,10 @@ main a:hover {
 }
 
 .posts .action > svg:hover {
+  transform: translateY(-4px) scale(1.2);
+}
+
+.posts .action > svg:active {
   transform: translateY(-4px);
 }
 
@@ -282,23 +291,143 @@ main a:hover {
   fill: var(--accent);
 }
 
+/* ANNOUCEMENTS SECTION */
+
 .announcements > div {
   background-color: var(--gray-100);
   box-shadow: var(--shadow);
-  padding: 1rem 1.25rem;
+  padding: 1.5rem 1.25rem;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.announcements hr {
+.announcements .separator {
   border: 0;
   height: 1px;
   background-image: linear-gradient(90deg, var(--gray-100), var(--gray-200) 20%, var(--gray-200) 80%, var(--gray-100));
 }
 
 .announcements h4 {
-  font-size: var(--fs-400);
+  font-size: calc(var(--fs-400) - 1px);
+  margin-bottom: 2px;
 }
 
 .announcements p {
-  font-size: calc(var(--fs-300) - 4px + 0.36vmin);
+  color: var(--gray-500);
+  font-size: calc(var(--fs-300) - 1px);
+}
+
+/* TRENDING SECTION */
+
+.trending img {
+  width: 2.5em;
+  border-radius: 100%;
+}
+
+.profiles {
+  background-color: var(--gray-100);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile {
+  font-size: var(--fs-300);
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.profile > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile img {
+  vertical-align: middle;
+  transition: filter var(--transition-medium);
+}
+
+.profile img:hover {
+  filter: brightness(90%);
+}
+
+.profile .username {
+  font-weight: 500;
+}
+
+.profile .username > a {
+  text-decoration: none;
+}
+
+.profile .username > a:hover {
+  text-decoration: underline;
+}
+
+.profile .username > a:active {
+  text-decoration: none;
+}
+
+.profile .description {
+  color: var(--gray-500);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 80em) {
+  main {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  main > .posts {
+    flex: 2;
+  }
+
+  main > .side-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  main .announcements > div {
+    gap: 1rem;
+  }
+
+  main .trending > div {
+    gap: 1.375rem;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  main {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  main > .posts {
+    order: 1;
+  }
+
+  main > .side-info {
+    flex-direction: row;
+    gap: 1.25rem;
+  }
+
+  main > .side-info > * {
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  main > .side-info {
+    display: contents;
+  }
 }
