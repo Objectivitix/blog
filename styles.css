@@ -132,6 +132,10 @@ aside .menu-toggle {
   transition: transform var(--transition-medium);
 }
 
+.menu-toggle .close {
+  width: 1.75rem; /* compensate for larger height */
+}
+
 .menu-toggle > svg:hover {
   transform: translateX(-50%) scale(1.1);
 }
@@ -510,11 +514,18 @@ main a:hover {
     transform: translateX(-50%);
   }
 
+  aside .wrapper-v2 {
+    transform: scaleX(0.3);
+    transform-origin: left;
+    transition: transform var(--transition-slow);
+  }
+
   aside.active .wrapper-v2 {
     height: 100vh;
     position: absolute;
     background-color: var(--primary);
     padding: 2.5rem 1.25rem;
+    transform: scaleX(1);
   }
 
   aside.active nav:first-of-type {
@@ -523,6 +534,18 @@ main a:hover {
 
   aside:not(.active) .wrapper-v2 > :not(.menu-toggle) {
     display: none;
+  }
+
+  aside .close {
+    display: none;
+  }
+
+  aside.active .open {
+    display: none;
+  }
+
+  aside.active .close {
+    display: initial;
   }
 }
 
