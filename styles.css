@@ -121,12 +121,32 @@ main :where(.posts, .announcements, .trending) {
 aside {
   color: var(--gray-100);
   background-color: var(--primary);
-  padding: 2.5rem 1.75rem;
+}
+
+aside .menu-toggle {
+  display: none;
+}
+
+.menu-toggle > svg {
+  width: 2rem;
+  transition: transform var(--transition-medium);
+}
+
+.menu-toggle > svg:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+.menu-toggle > svg:active {
+  transform: translateX(-50%);
 }
 
 aside > .wrapper {
   position: sticky;
-  top: 2.5rem;
+  top: 0;
+}
+
+aside .wrapper-v2 {
+  padding: 2.5rem 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
@@ -139,7 +159,7 @@ aside svg {
 }
 
 h2 {
-  font-size: calc(var(--fs-700) + 0.3vw);
+  font-size: calc(var(--fs-700) - 2px + 0.4vw);
 }
 
 h2 > svg {
@@ -151,17 +171,17 @@ h2 > svg {
 }
 
 nav > ul {
-  font-size: calc(var(--fs-500) - 3px + 0.3vw);
+  font-size: calc(var(--fs-500) - 5px + 0.4vw);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1em;
 }
 
 nav a {
   opacity: 0.8;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1em;
   transition: opacity var(--transition-fast);
 }
 
@@ -265,8 +285,6 @@ main a:hover {
 }
 
 .posts svg {
-  position: relative;
-  bottom: 1px;
   width: 1.25em;
 }
 
@@ -381,6 +399,10 @@ main a:hover {
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 80em) {
+  aside svg {
+    bottom: 1px;
+  }
+
   main {
     display: flex;
     gap: 1.25rem;
@@ -421,13 +443,93 @@ main a:hover {
     gap: 1.25rem;
   }
 
-  main > .side-info > * {
+  main .announcements {
+    flex: 1.375;
+  }
+
+  main .trending {
     flex: 1;
   }
 }
 
 @media screen and (max-width: 50em) {
+  aside svg {
+    bottom: 0;
+  }
+
   main > .side-info {
     display: contents;
+  }
+
+  main .announcements > div {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.125rem 1.25rem;
+  }
+
+  main .announcements article:last-child {
+    grid-column-end: -1;
+    grid-row: 1 / -1;
+  }
+
+  main .announcements .separator {
+    display: none;
+  }
+
+  main .announcements h4 {
+    margin-bottom: 4px;
+  }
+
+  main .trending > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  body {
+    grid-template-columns: 70px 1fr;
+  }
+
+  aside h2 {
+    display: none;
+  }
+
+  aside .menu-toggle {
+    display: contents;
+    color: currentColor;
+  }
+
+  aside .menu-toggle > svg {
+    position: absolute;
+    z-index: 1;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  aside.active .wrapper-v2 {
+    height: 100vh;
+    position: absolute;
+    background-color: var(--primary);
+    padding: 2.5rem 1.25rem;
+  }
+
+  aside.active nav:first-of-type {
+    margin-top: 5rem;
+  }
+
+  aside:not(.active) .wrapper-v2 > :not(.menu-toggle) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 32em) {
+  main .announcements > div,
+  main .trending > div {
+    display: flex;
+    flex-direction: column;
   }
 }
