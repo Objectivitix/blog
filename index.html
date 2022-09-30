@@ -38,7 +38,35 @@
   </aside>
 
   <header>
-
+    <div class="first-row">
+      <div class="search">
+        <button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><use href="#search-icon" /></svg></button>
+        <input type="text">
+      </div>
+      <button class="notifications"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><use href="#notifications-icon" /></svg></button>
+      <a class="user-profile" href="#">
+        <img src="./resources/media/user-avatar.png" alt="A person in an opaque full-face mask. Amber background.">
+        <span>It's All Objects</span>
+      </a>
+    </div>
+    <div class="second-row">
+      <div class="greeting">
+        <a href="#"><img src="./resources/media/user-avatar.png" alt="A person in an opaque full-face mask. Amber background."></a>
+        <div>
+          <span class="greet">Hi there,</span>
+          <span class="username">
+            <span class="inline-greet">Hi there,</span>
+            <span class="name">It's All Objects</span>
+            <span class="id">@objx</span>
+          </span>
+        </div>
+      </div>
+      <div class="toolbar">
+        <button>New</button>
+        <button>Upload</button>
+        <button>Share</button>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -151,10 +179,10 @@
         <h3>Trending</h3>
         <div class="profiles">
           <div class="profile">
-            <a href="#"><img src="./resources/media/avatar1.png" alt="A person in a full-face mask. Amber background."></a>
+            <a href="#"><img src="./resources/media/avatar1.png" alt="A woman with glasses and rainbow hair. Pink background."></a>
             <div>
-              <span class="username"><a href="#">@martin</a></span>
-              <span class="description">Martin McKamiley</span>
+              <span class="username"><a href="#">@martina</a></span>
+              <span class="description">Martina McKamiley</span>
             </div>
           </div>
           <div class="profile">
@@ -187,6 +215,8 @@
     <defs>
       <path id="menu-icon" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
       <path id="close-icon" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"" />
+      <path id="search-icon" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+      <path id="notifications-icon" d="M10,21H14A2,2 0 0,1 12,23A2,2 0 0,1 10,21M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M17,11A5,5 0 0,0 12,6A5,5 0 0,0 7,11V18H17V11M19.75,3.19L18.33,4.61C20.04,6.3 21,8.6 21,11H23C23,8.07 21.84,5.25 19.75,3.19M1,11H3C3,8.6 3.96,6.3 5.67,4.61L4.25,3.19C2.16,5.25 1,8.07 1,11Z" />
       <path id="dashboard-icon" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
       <path id="home-icon" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
       <path id="profile-icon" d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />
