@@ -528,36 +528,33 @@ main a:hover {
 
 .posts .stats-and-actions > .action {
   margin-left: auto;
-}
-
-/* we only want the first .action */
-.posts .stats-and-actions > .action ~ .action {
-  margin-left: 0;
+  display: flex;
+  gap: 8px;
 }
 
 .posts svg {
   width: 1.25em;
 }
 
-.posts .action > svg {
+.posts .action svg {
   cursor: pointer;
   transition: transform var(--transition-medium);
 }
 
-.posts .action > svg:hover {
+.posts .action svg:hover {
   transform: translateY(-4px) scale(1.2);
 }
 
-.posts .action > svg:active {
+.posts .action svg:active {
   transform: translateY(-4px) scale(1.05);
   transition: none;
 }
 
-.posts .action > svg use {
+.posts .action svg use {
   transition: fill var(--transition-medium);
 }
 
-.posts .action > svg:hover use {
+.posts .action svg:hover use {
   fill: var(--accent);
 }
 
