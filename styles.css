@@ -141,6 +141,7 @@ aside .menu-toggle {
 }
 
 .menu-toggle > svg {
+  background-image: radial-gradient(var(--primary), transparent 80%);
   width: 2rem;
   transition: transform var(--transition-medium);
 }
@@ -163,6 +164,8 @@ aside > .wrapper {
 }
 
 aside .wrapper-v2 {
+  max-height: 100vh; /* for correct overflow behaviour */
+  overflow: auto;
   padding: 2.5rem 1.75rem;
   display: flex;
   flex-direction: column;
